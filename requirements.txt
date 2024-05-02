@@ -1,0 +1,12 @@
+streamlit
+pandas
+matplotlib
+seaborn
+numpy
+altair
+graphviz
+streamlit_option_menu
+scikit-learn
+Pillow
+shapash
+mlflow
