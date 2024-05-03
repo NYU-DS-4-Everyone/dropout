@@ -17,8 +17,12 @@ from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.tree import DecisionTreeClassifier,export_graphviz # Import Decision Tree Classifier
 import mlflow
 from sklearn import metrics
+from codecarbon import EmissionsTracker
 #%matplotlib inline
 
+# Initialize the emissions tracker
+tracker = EmissionsTracker()
+tracker.start()
 #st.set_page_config(layout='wide')
 st.set_option('deprecation.showPyplotGlobalUse', False)
 #####################################################################
@@ -973,5 +977,10 @@ if selected == "Conclusion":
     Since we are dealing with education data, it is important to continuously update the model with new data, such as changes in the economic landscape or educational policies in Portugal, to keep the model relevant and accurate.  
     Additionally, we could also merge our current dataset with other datasets that may provide additional insights. By incorporating external datasets, we can enhance the quality and accuracy of our model predictions.
     """)
+    # Stop the emissions tracker
+    emissions = tracker.stop()
+
+
+    st.write(f"Total CO2 emissions:{emissions:.4f}kg CO2")
 
 
